@@ -1,0 +1,50 @@
+<?php
+
+return [
+    'CustomerType' => [
+        'BO' => 'Bộ',
+        'SO' => 'Sở',
+        'PHONG' => 'Phòng',
+        'MN' => 'Trường Mầm non',
+        'TH' => 'Trường Tiểu học',
+        'CS' => 'Trường Trung học cơ sở',
+        'PT' => 'Trường Phổ thông trung học',
+        'MN_TH' => 'Liên cấp Mầm non - Tiểu học',
+        'MN_TH_CS' => 'Liên cấp Mầm non - Trung học cơ sở',
+        'MN_TH_CS_PT' => 'Liên cấp Mầm non - Phổ thông trung học',
+        'TH_CS' => 'Liên cấp Tiểu học - Trung học cơ sở',
+        'TH_CS_PT' => 'Liên cấp Tiểu học - Phổ thông trung học',
+        'CS_PT' => 'Liên cấp Trung học cơ sở - Phổ thông trung học',
+        'TT' => 'Trung tâm giáo dục',
+        'GDTX' => 'Trung tâm giáo dục thường xuyên',
+        'TC' => 'Trung cấp',
+        'CD' => 'Cao đẳng',
+        'DH' => 'Đại học',
+        'HV' => 'Học viện',
+        'TINH' => 'Tỉnh - Thành phố',
+        'HUYEN' => 'Huyện - Quận',
+        'XA' => 'Xã - Phường',
+        'KHAC' => 'Khác',
+    ],
+
+    'RoleType' => [
+        'SUPER_ADMIN' => 'Administrator',
+        'SUPPORTER' => 'Hỗ trợ khách hàng',
+        'ADMIN' => 'Quản trị đơn vị',
+        'MEMBER' => 'Thành viên',
+        'STUDENT' => 'Học sinh',
+        'USER' => 'Người dùng',
+    ],
+    'Systems' => [
+        'qlcm' => 'Chuyên môn giáo viên',
+        'gadt' => 'Giáo án điện tử',
+        'portal' => 'Cổng thông tin điện tử',
+        'dbschool' => 'Dữ liệu trường học',
+        'manager' => 'Manager',
+    ],
+    'GenderType' => [
+        'MALE' => 'Nam',
+        'FEMALE' => 'Nữ',
+        'OTHER' => 'Khác',
+    ],
+];

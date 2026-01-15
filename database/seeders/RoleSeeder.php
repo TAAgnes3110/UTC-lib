@@ -238,5 +238,43 @@ class RoleSeeder extends Seeder
             'updated_at' => now(),
         ];
         DB::table('staff_profiles')->updateOrInsert(['customer_id' => $librarianStaffProfile['customer_id']], $librarianStaffProfile);
+
+        $adminCustomer = [
+            'user_id' => 1,
+            'user_type' => 'superadmin',
+            'identity_card' => '001234567893',
+            'first_name' => 'UTC',
+            'last_name' => 'Admin',
+            'full_name' => 'Admin UTC',
+            'phone' => '0241234567',
+            'email' => 'admin@utc.edu.vn',
+            'address' => 'Hà Nội',
+            'birthday' => Carbon::parse('1985-01-01'),
+            'gender' => 'male',
+            'card_number' => 'LIB-2025-000',
+            'department' => 'Phòng Công nghệ thông tin',
+            'card_issue_date' => Carbon::now()->subYears(2),
+            'card_expiry_date' => Carbon::now()->addYears(10),
+            'status' => 'active',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ];
+        DB::table('customers')->updateOrInsert(['user_id' => 1], $adminCustomer);
+
+        $adminStaffProfile = [
+            'customer_id' => DB::table('customers')->where('user_id', 1)->value('id'),
+            'staff_code' => 'ADMIN001',
+            'employee_id' => 'EMP20250000',
+            'position' => 'Quản trị viên hệ thống',
+            'academic_rank' => 'Cử nhân',
+            'specialization' => 'Quản trị hệ thống',
+            'hire_date' => Carbon::parse('2020-01-01'),
+            'contract_start_date' => Carbon::parse('2024-01-01'),
+            'contract_end_date' => Carbon::parse('2030-12-31'),
+            'contract_type' => 'fulltime',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ];
+        DB::table('staff_profiles')->updateOrInsert(['customer_id' => $adminStaffProfile['customer_id']], $adminStaffProfile);
     }
 }
