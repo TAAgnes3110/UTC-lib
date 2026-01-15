@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết Sách - Hệ thống Quản lý Thư viện UTC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-book-open text-indigo-600 text-2xl mr-3"></i>
+                        <span class="text-xl font-bold text-gray-800">UTC Library</span>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <a href="books.html" class="text-gray-600 hover:text-gray-900">
+                        <i class="fas fa-arrow-left mr-2"></i>Quay lại
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div class="md:flex">
+                <!-- Book Cover -->
+                <div class="md:w-1/3 bg-gray-100 p-8 flex items-center justify-center">
+                    <div class="w-full max-w-xs">
+                        <img src="https://via.placeholder.com/400x600" alt="Book Cover" class="w-full h-auto rounded-lg shadow-lg">
+                    </div>
+                </div>
+
+                <!-- Book Info -->
+                <div class="md:w-2/3 p-8">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h1 class="text-3xl font-bold text-gray-900 mb-2">Giáo trình Công nghệ Web</h1>
+                            <div class="flex items-center space-x-4 text-sm text-gray-600 mb-4">
+                                <span><i class="fas fa-bookmark mr-1"></i>Danh mục: Kỹ thuật</span>
+                                <span><i class="fas fa-barcode mr-1"></i>ISBN: 978-1234567890</span>
+                            </div>
+                        </div>
+                        <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-semibold">Available</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <p class="text-sm text-gray-600 mb-1">Tác giả:</p>
+                            <p class="font-semibold text-gray-900">Nguyễn Văn A, Trần Thị B</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-600 mb-1">Nhà xuất bản:</p>
+                            <p class="font-semibold text-gray-900">NXB Giáo dục</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-600 mb-1">Năm xuất bản:</p>
+                            <p class="font-semibold text-gray-900">2025</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-600 mb-1">Số trang:</p>
+                            <p class="font-semibold text-gray-900">450 trang</p>
+                        </div>
+                    </div>
+
+                    <!-- Availability -->
+                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                            <div>
+                                <p class="text-2xl font-bold text-blue-600">10</p>
+                                <p class="text-sm text-gray-600">Tổng bản sao</p>
+                            </div>
+                            <div>
+                                <p class="text-2xl font-bold text-green-600">5</p>
+                                <p class="text-sm text-gray-600">Còn lại</p>
+                            </div>
+                            <div>
+                                <p class="text-2xl font-bold text-orange-600">5</p>
+                                <p class="text-sm text-gray-600">Đang mượn</p>
+                            </div>
+                            <div>
+                                <p class="text-2xl font-bold text-yellow-600">2</p>
+                                <p class="text-sm text-gray-600">Đã đặt chỗ</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Mô tả</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            Giáo trình Công nghệ Web cung cấp các kiến thức cơ bản và nâng cao về phát triển ứng dụng web hiện đại.
+                            Bao gồm các công nghệ như HTML5, CSS3, JavaScript, React, Node.js và các framework phổ biến khác.
+                            Phù hợp cho sinh viên ngành Công nghệ Thông tin và các ngành liên quan.
+                        </p>
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="flex space-x-4">
+                        <button class="flex-1 px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 font-semibold">
+                            <i class="fas fa-book-reader mr-2"></i>Mượn sách
+                        </button>
+                        <button class="px-6 py-3 bg-yellow-600 text-white rounded-lg hover:bg-yellow-700 font-semibold">
+                            <i class="fas fa-bookmark mr-2"></i>Đặt chỗ
+                        </button>
+                        <button class="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300">
+                            <i class="fas fa-share-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Book Copies -->
+        <div class="bg-white rounded-lg shadow mt-6">
+            <div class="p-6 border-b border-gray-200">
+                <h2 class="text-xl font-semibold text-gray-800">Danh sách Bản sao</h2>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Barcode</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Trạng thái</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Vị trí</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Ghi chú</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">BTC001-001</td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">Available</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Kệ A1-001</td>
+                            <td class="px-6 py-4 text-sm text-gray-500">Tốt</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">BTC001-002</td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="px-2 py-1 text-xs font-semibold rounded-full bg-orange-100 text-orange-800">Borrowed</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Đang mượn</td>
+                            <td class="px-6 py-4 text-sm text-gray-500">-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

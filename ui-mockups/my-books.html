@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sách của tôi - Hệ thống Quản lý Thư viện UTC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-book-open text-indigo-600 text-2xl mr-3"></i>
+                        <span class="text-xl font-bold text-gray-800">UTC Library</span>
+                    </div>
+                    <div class="hidden md:ml-10 md:flex md:space-x-8">
+                        <a href="dashboard-student.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Dashboard
+                        </a>
+                        <a href="books.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Tìm sách
+                        </a>
+                        <a href="my-books.html" class="border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Sách của tôi
+                        </a>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <div class="ml-4 relative">
+                        <div class="flex items-center space-x-3 cursor-pointer">
+                            <div class="text-right hidden md:block">
+                                <p class="text-sm font-medium text-gray-700">Nguyễn Văn A</p>
+                                <p class="text-xs text-gray-500">SV2021001</p>
+                            </div>
+                            <div class="w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center">
+                                <i class="fas fa-user text-white"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl font-bold text-gray-800 mb-6">Sách của tôi</h2>
+
+        <!-- Tabs -->
+        <div class="bg-white rounded-lg shadow mb-6">
+            <div class="border-b border-gray-200">
+                <nav class="flex -mb-px">
+                    <button class="px-6 py-3 border-b-2 border-indigo-500 text-indigo-600 font-medium text-sm">
+                        Đang mượn
+                    </button>
+                    <button class="px-6 py-3 border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 font-medium text-sm">
+                        Đã trả
+                    </button>
+                    <button class="px-6 py-3 border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 font-medium text-sm">
+                        Đã đặt chỗ
+                    </button>
+                </nav>
+            </div>
+
+            <!-- Borrowed Books -->
+            <div class="p-6">
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:shadow-md transition">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-20 h-24 bg-gray-200 rounded flex-shrink-0">
+                                <img src="https://via.placeholder.com/80x96" alt="Book" class="w-full h-full object-cover rounded">
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 text-lg">Giáo trình Công nghệ Web</h3>
+                                <p class="text-sm text-gray-600">Tác giả: Nguyễn Văn B</p>
+                                <p class="text-sm text-gray-500">Barcode: BTC001-001</p>
+                                <div class="mt-2 flex items-center space-x-4 text-sm">
+                                    <div>
+                                        <span class="text-gray-600">Ngày mượn:</span>
+                                        <span class="text-gray-900 ml-2">01/01/2026</span>
+                                    </div>
+                                    <div>
+                                        <span class="text-gray-600">Hạn trả:</span>
+                                        <span class="text-yellow-600 font-semibold ml-2">15/01/2026</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col space-y-2">
+                            <button class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">
+                                <i class="fas fa-clock mr-2"></i>Gia hạn
+                            </button>
+                            <button class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">
+                                <i class="fas fa-undo mr-2"></i>Trả sách
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between p-4 border border-red-300 bg-red-50 rounded-lg">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-20 h-24 bg-gray-200 rounded flex-shrink-0">
+                                <img src="https://via.placeholder.com/80x96" alt="Book" class="w-full h-full object-cover rounded">
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 text-lg">Kỹ thuật lập trình</h3>
+                                <p class="text-sm text-gray-600">Tác giả: Lê Văn C</p>
+                                <p class="text-sm text-gray-500">Barcode: KTL003-001</p>
+                                <div class="mt-2 flex items-center space-x-4 text-sm">
+                                    <div>
+                                        <span class="text-gray-600">Ngày mượn:</span>
+                                        <span class="text-gray-900 ml-2">10/12/2025</span>
+                                    </div>
+                                    <div>
+                                        <span class="text-red-600 font-semibold">Quá hạn 2 ngày</span>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-red-600 font-semibold mt-1">Phạt: 50,000 VNĐ</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col space-y-2">
+                            <button class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition">
+                                <i class="fas fa-money-bill-wave mr-2"></i>Thanh toán
+                            </button>
+                            <button class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">
+                                <i class="fas fa-undo mr-2"></i>Trả sách
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

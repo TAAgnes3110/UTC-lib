@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quy tắc Thư viện - Hệ thống Quản lý Thư viện UTC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-100">
+    <!-- Sidebar -->
+    <aside class="fixed left-0 top-0 h-full w-64 bg-indigo-900 text-white shadow-lg">
+        <div class="p-6">
+            <div class="flex items-center space-x-3 mb-8">
+                <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
+                    <i class="fas fa-book-open text-indigo-900 text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold">UTC Library</h1>
+                </div>
+            </div>
+            <nav class="space-y-2">
+                <a href="dashboard-admin.html" class="flex items-center space-x-3 p-3 hover:bg-indigo-800 rounded-lg transition">
+                    <i class="fas fa-home w-5"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="library-rules.html" class="flex items-center space-x-3 p-3 bg-indigo-800 rounded-lg">
+                    <i class="fas fa-gavel w-5"></i>
+                    <span>Quy tắc Thư viện</span>
+                </a>
+            </nav>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="ml-64 p-8">
+        <!-- Header -->
+        <div class="bg-white rounded-lg shadow p-6 mb-6">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-800">Quản lý Quy tắc Thư viện</h2>
+                    <p class="text-gray-600">Cấu hình quy tắc mượn trả và phạt</p>
+                </div>
+                <button class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">
+                    <i class="fas fa-plus mr-2"></i>Thêm quy tắc
+                </button>
+            </div>
+        </div>
+
+        <!-- Rules Table -->
+        <div class="bg-white rounded-lg shadow">
+            <div class="p-6 border-b border-gray-200">
+                <h3 class="text-lg font-semibold text-gray-800">Danh sách Quy tắc</h3>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Loại người dùng</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Số sách tối đa</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Thời gian mượn (ngày)</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Số lần gia hạn</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Phí quá hạn/ngày</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Trạng thái</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="px-2 py-1 text-xs font-semibold rounded-full bg-indigo-100 text-indigo-800">Sinh viên</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">5</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">14</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">5,000 VNĐ</td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">Active</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                <button class="text-indigo-600 hover:text-indigo-900 mr-3">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="text-red-600 hover:text-red-900">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="px-2 py-1 text-xs font-semibold rounded-full bg-purple-100 text-purple-800">Giảng viên</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">10</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">90</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">3</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">10,000 VNĐ</td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">Active</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                <button class="text-indigo-600 hover:text-indigo-900 mr-3">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="text-red-600 hover:text-red-900">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">Thủ thư</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">15</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">30</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">5</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">5,000 VNĐ</td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">Active</span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">
+                                <button class="text-indigo-600 hover:text-indigo-900 mr-3">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="text-red-600 hover:text-red-900">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Fine Rules -->
+        <div class="bg-white rounded-lg shadow mt-6">
+            <div class="p-6 border-b border-gray-200">
+                <h3 class="text-lg font-semibold text-gray-800">Quy tắc Phạt</h3>
+            </div>
+            <div class="p-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="border border-gray-200 rounded-lg p-4">
+                        <div class="flex items-center justify-between mb-3">
+                            <h4 class="font-semibold text-gray-900">Phạt mất sách</h4>
+                            <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">Active</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-2">Giá trị sách x 3</p>
+                        <button class="text-sm text-indigo-600 hover:text-indigo-900">
+                            <i class="fas fa-edit mr-1"></i>Chỉnh sửa
+                        </button>
+                    </div>
+
+                    <div class="border border-gray-200 rounded-lg p-4">
+                        <div class="flex items-center justify-between mb-3">
+                            <h4 class="font-semibold text-gray-900">Phạt hư hỏng</h4>
+                            <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">Active</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-2">Giá trị sách x 0.5</p>
+                        <button class="text-sm text-indigo-600 hover:text-indigo-900">
+                            <i class="fas fa-edit mr-1"></i>Chỉnh sửa
+                        </button>
+                    </div>
+
+                    <div class="border border-gray-200 rounded-lg p-4">
+                        <div class="flex items-center justify-between mb-3">
+                            <h4 class="font-semibold text-gray-900">Phạt quá hạn</h4>
+                            <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">Active</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-2">Theo quy tắc loại người dùng</p>
+                        <button class="text-sm text-indigo-600 hover:text-indigo-900">
+                            <i class="fas fa-edit mr-1"></i>Chỉnh sửa
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

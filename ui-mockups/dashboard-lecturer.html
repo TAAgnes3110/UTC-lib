@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Giảng viên - Hệ thống Quản lý Thư viện UTC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-book-open text-indigo-600 text-2xl mr-3"></i>
+                        <span class="text-xl font-bold text-gray-800">UTC Library</span>
+                    </div>
+                    <div class="hidden md:ml-10 md:flex md:space-x-8">
+                        <a href="dashboard-lecturer.html" class="border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Dashboard
+                        </a>
+                        <a href="books.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Tìm sách
+                        </a>
+                        <a href="my-books.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Sách của tôi
+                        </a>
+                        <a href="profile.html" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            Hồ sơ
+                        </a>
+                        <a href="role-selector.html" class="border-transparent text-yellow-600 hover:border-yellow-300 hover:text-yellow-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                            <i class="fas fa-exchange-alt mr-1"></i>Chuyển Role
+                        </a>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <div class="ml-4 relative">
+                        <div class="flex items-center space-x-3 cursor-pointer">
+                            <div class="text-right hidden md:block">
+                                <p class="text-sm font-medium text-gray-700">GS. Nguyễn Văn X</p>
+                                <p class="text-xs text-gray-500">GV2021001</p>
+                            </div>
+                            <div class="w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center">
+                                <i class="fas fa-user text-white"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+        <!-- Welcome Section -->
+        <div class="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-lg shadow-lg p-6 mb-6 text-white">
+            <h1 class="text-3xl font-bold mb-2">Xin chào, GS. Nguyễn Văn X!</h1>
+            <p class="text-purple-100">Thông tin mượn sách và tài liệu nghiên cứu</p>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-600 text-sm mb-1">Sách đang mượn</p>
+                        <p class="text-3xl font-bold text-gray-800">5</p>
+                        <p class="text-sm text-gray-500 mt-1">Tối đa: 10</p>
+                    </div>
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-book text-blue-600 text-xl"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-600 text-sm mb-1">Thời gian mượn</p>
+                        <p class="text-3xl font-bold text-gray-800">90</p>
+                        <p class="text-sm text-gray-500 mt-1">ngày</p>
+                    </div>
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-calendar-alt text-green-600 text-xl"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-600 text-sm mb-1">Sách đã đặt chỗ</p>
+                        <p class="text-3xl font-bold text-gray-800">2</p>
+                    </div>
+                    <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-bookmark text-yellow-600 text-xl"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-600 text-sm mb-1">Lịch sử mượn</p>
+                        <p class="text-3xl font-bold text-gray-800">47</p>
+                        <p class="text-sm text-gray-500 mt-1">quyển</p>
+                    </div>
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-history text-purple-600 text-xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- My Books Section -->
+        <div class="bg-white rounded-lg shadow mb-6">
+            <div class="p-6 border-b border-gray-200 flex justify-between items-center">
+                <h2 class="text-xl font-semibold text-gray-800">Sách đang mượn</h2>
+                <a href="books.html" class="text-indigo-600 hover:text-indigo-800 font-medium">
+                    <i class="fas fa-search mr-2"></i>Tìm thêm sách
+                </a>
+            </div>
+            <div class="p-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:shadow-md transition">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-16 h-20 bg-gray-200 rounded flex-shrink-0">
+                                <img src="https://via.placeholder.com/64x80" alt="Book" class="w-full h-full object-cover rounded">
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900">Nghiên cứu Khoa học</h3>
+                                <p class="text-sm text-gray-600">Tác giả: Multiple Authors</p>
+                                <p class="text-sm text-gray-500">Mã sách: NCK001</p>
+                                <p class="text-sm text-green-600 mt-1">
+                                    <i class="fas fa-calendar-alt mr-1"></i>
+                                    Hạn trả: 20/03/2026
+                                </p>
+                            </div>
+                        </div>
+                        <button class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">
+                            <i class="fas fa-eye mr-2"></i>Chi tiết
+                        </button>
+                    </div>
+
+                    <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:shadow-md transition">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-16 h-20 bg-gray-200 rounded flex-shrink-0">
+                                <img src="https://via.placeholder.com/64x80" alt="Book" class="w-full h-full object-cover rounded">
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900">Giáo trình Chuyên ngành</h3>
+                                <p class="text-sm text-gray-600">Tác giả: GS. Trần Văn Y</p>
+                                <p class="text-sm text-gray-500">Mã sách: GTCN002</p>
+                                <p class="text-sm text-green-600 mt-1">
+                                    <i class="fas fa-calendar-alt mr-1"></i>
+                                    Hạn trả: 25/03/2026
+                                </p>
+                            </div>
+                        </div>
+                        <button class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">
+                            <i class="fas fa-eye mr-2"></i>Chi tiết
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Privileges Info -->
+        <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-6">
+            <div class="flex items-start">
+                <div class="flex-shrink-0">
+                    <i class="fas fa-info-circle text-blue-600 text-2xl"></i>
+                </div>
+                <div class="ml-3">
+                    <h3 class="text-lg font-semibold text-blue-900 mb-2">Quyền lợi Giảng viên</h3>
+                    <ul class="list-disc list-inside space-y-1 text-blue-800">
+                        <li>Mượn tối đa 10 quyển sách cùng lúc</li>
+                        <li>Thời gian mượn: 90 ngày (có thể gia hạn)</li>
+                        <li>Được ưu tiên đặt chỗ sách</li>
+                        <li>Truy cập tài liệu nghiên cứu đặc biệt</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

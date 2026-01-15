@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý Sách - Hệ thống Quản lý Thư viện UTC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-100">
+    <!-- Sidebar (Admin/Librarian) -->
+    <aside class="fixed left-0 top-0 h-full w-64 bg-indigo-900 text-white shadow-lg hidden lg:block">
+        <div class="p-6">
+            <div class="flex items-center space-x-3 mb-8">
+                <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
+                    <i class="fas fa-book-open text-indigo-900 text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold">UTC Library</h1>
+                </div>
+            </div>
+            <nav class="space-y-2">
+                <a href="dashboard-admin.html" class="flex items-center space-x-3 p-3 hover:bg-indigo-800 rounded-lg transition">
+                    <i class="fas fa-home w-5"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="books.html" class="flex items-center space-x-3 p-3 bg-indigo-800 rounded-lg">
+                    <i class="fas fa-book w-5"></i>
+                    <span>Quản lý sách</span>
+                </a>
+                <a href="borrow-return.html" class="flex items-center space-x-3 p-3 hover:bg-indigo-800 rounded-lg transition">
+                    <i class="fas fa-exchange-alt w-5"></i>
+                    <span>Mượn/Trả sách</span>
+                </a>
+            </nav>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="lg:ml-64 p-8">
+        <!-- Header -->
+        <div class="bg-white rounded-lg shadow p-6 mb-6">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between space-y-4 md:space-y-0">
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-800">Quản lý Sách</h2>
+                    <p class="text-gray-600">Tìm kiếm và quản lý sách trong thư viện</p>
+                </div>
+                <button class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">
+                    <i class="fas fa-plus mr-2"></i>Thêm sách mới
+                </button>
+            </div>
+        </div>
+
+        <!-- Search and Filter -->
+        <div class="bg-white rounded-lg shadow p-6 mb-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div class="md:col-span-2">
+                    <div class="relative">
+                        <input
+                            type="text"
+                            placeholder="Tìm kiếm sách, tác giả, ISBN..."
+                            class="w-full px-4 py-2 pl-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                        >
+                        <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                    </div>
+                </div>
+                <select class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                    <option>Tất cả danh mục</option>
+                    <option>Kỹ thuật</option>
+                    <option>Kinh tế</option>
+                    <option>Văn học</option>
+                </select>
+                <select class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                    <option>Tất cả trạng thái</option>
+                    <option>Còn sách</option>
+                    <option>Hết sách</option>
+                    <option>Đang sửa chữa</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Books Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- Book Card 1 -->
+            <div class="bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden">
+                <div class="h-48 bg-gray-200">
+                    <img src="https://via.placeholder.com/300x400" alt="Book" class="w-full h-full object-cover">
+                </div>
+                <div class="p-4">
+                    <h3 class="font-semibold text-gray-900 mb-1 line-clamp-2">Giáo trình Công nghệ Web</h3>
+                    <p class="text-sm text-gray-600 mb-2">Nguyễn Văn A</p>
+                    <div class="flex items-center justify-between text-xs text-gray-500 mb-3">
+                        <span><i class="fas fa-bookmark mr-1"></i>Kỹ thuật</span>
+                        <span><i class="fas fa-barcode mr-1"></i>ISBN: 978-1234567890</span>
+                    </div>
+                    <div class="flex items-center justify-between mb-3">
+                        <div>
+                            <span class="text-sm font-semibold text-green-600">Còn: 5/10</span>
+                        </div>
+                        <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">Available</span>
+                    </div>
+                    <div class="flex space-x-2">
+                        <button class="flex-1 px-3 py-2 bg-indigo-600 text-white rounded text-sm hover:bg-indigo-700 transition">
+                            <i class="fas fa-eye mr-1"></i>Chi tiết
+                        </button>
+                        <button class="px-3 py-2 bg-gray-200 text-gray-700 rounded text-sm hover:bg-gray-300 transition">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Book Card 2 -->
+            <div class="bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden">
+                <div class="h-48 bg-gray-200">
+                    <img src="https://via.placeholder.com/300x400" alt="Book" class="w-full h-full object-cover">
+                </div>
+                <div class="p-4">
+                    <h3 class="font-semibold text-gray-900 mb-1 line-clamp-2">Toán học cao cấp</h3>
+                    <p class="text-sm text-gray-600 mb-2">Trần Thị B</p>
+                    <div class="flex items-center justify-between text-xs text-gray-500 mb-3">
+                        <span><i class="fas fa-bookmark mr-1"></i>Khoa học</span>
+                        <span><i class="fas fa-barcode mr-1"></i>ISBN: 978-1234567891</span>
+                    </div>
+                    <div class="flex items-center justify-between mb-3">
+                        <div>
+                            <span class="text-sm font-semibold text-yellow-600">Còn: 2/8</span>
+                        </div>
+                        <span class="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs rounded-full">Limited</span>
+                    </div>
+                    <div class="flex space-x-2">
+                        <button class="flex-1 px-3 py-2 bg-indigo-600 text-white rounded text-sm hover:bg-indigo-700 transition">
+                            <i class="fas fa-eye mr-1"></i>Chi tiết
+                        </button>
+                        <button class="px-3 py-2 bg-gray-200 text-gray-700 rounded text-sm hover:bg-gray-300 transition">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Book Card 3 -->
+            <div class="bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden">
+                <div class="h-48 bg-gray-200">
+                    <img src="https://via.placeholder.com/300x400" alt="Book" class="w-full h-full object-cover">
+                </div>
+                <div class="p-4">
+                    <h3 class="font-semibold text-gray-900 mb-1 line-clamp-2">Kỹ thuật lập trình</h3>
+                    <p class="text-sm text-gray-600 mb-2">Lê Văn C</p>
+                    <div class="flex items-center justify-between text-xs text-gray-500 mb-3">
+                        <span><i class="fas fa-bookmark mr-1"></i>Kỹ thuật</span>
+                        <span><i class="fas fa-barcode mr-1"></i>ISBN: 978-1234567892</span>
+                    </div>
+                    <div class="flex items-center justify-between mb-3">
+                        <div>
+                            <span class="text-sm font-semibold text-red-600">Còn: 0/5</span>
+                        </div>
+                        <span class="px-2 py-1 bg-red-100 text-red-800 text-xs rounded-full">Out of Stock</span>
+                    </div>
+                    <div class="flex space-x-2">
+                        <button class="flex-1 px-3 py-2 bg-indigo-600 text-white rounded text-sm hover:bg-indigo-700 transition">
+                            <i class="fas fa-eye mr-1"></i>Chi tiết
+                        </button>
+                        <button class="px-3 py-2 bg-gray-200 text-gray-700 rounded text-sm hover:bg-gray-300 transition">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Book Card 4 -->
+            <div class="bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden">
+                <div class="h-48 bg-gray-200">
+                    <img src="https://via.placeholder.com/300x400" alt="Book" class="w-full h-full object-cover">
+                </div>
+                <div class="p-4">
+                    <h3 class="font-semibold text-gray-900 mb-1 line-clamp-2">Cơ sở dữ liệu</h3>
+                    <p class="text-sm text-gray-600 mb-2">Phạm Văn D</p>
+                    <div class="flex items-center justify-between text-xs text-gray-500 mb-3">
+                        <span><i class="fas fa-bookmark mr-1"></i>Kỹ thuật</span>
+                        <span><i class="fas fa-barcode mr-1"></i>ISBN: 978-1234567893</span>
+                    </div>
+                    <div class="flex items-center justify-between mb-3">
+                        <div>
+                            <span class="text-sm font-semibold text-green-600">Còn: 8/10</span>
+                        </div>
+                        <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">Available</span>
+                    </div>
+                    <div class="flex space-x-2">
+                        <button class="flex-1 px-3 py-2 bg-indigo-600 text-white rounded text-sm hover:bg-indigo-700 transition">
+                            <i class="fas fa-eye mr-1"></i>Chi tiết
+                        </button>
+                        <button class="px-3 py-2 bg-gray-200 text-gray-700 rounded text-sm hover:bg-gray-300 transition">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="bg-white rounded-lg shadow p-4 mt-6">
+            <div class="flex items-center justify-between">
+                <div class="text-sm text-gray-600">
+                    Hiển thị 1-12 của 124 kết quả
+                </div>
+                <div class="flex space-x-2">
+                    <button class="px-3 py-1 border border-gray-300 rounded hover:bg-gray-50">Trước</button>
+                    <button class="px-3 py-1 bg-indigo-600 text-white rounded">1</button>
+                    <button class="px-3 py-1 border border-gray-300 rounded hover:bg-gray-50">2</button>
+                    <button class="px-3 py-1 border border-gray-300 rounded hover:bg-gray-50">3</button>
+                    <button class="px-3 py-1 border border-gray-300 rounded hover:bg-gray-50">Sau</button>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

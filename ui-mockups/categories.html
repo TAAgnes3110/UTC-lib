@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý Danh mục - Hệ thống Quản lý Thư viện UTC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-100">
+    <!-- Sidebar -->
+    <aside class="fixed left-0 top-0 h-full w-64 bg-indigo-900 text-white shadow-lg">
+        <div class="p-6">
+            <div class="flex items-center space-x-3 mb-8">
+                <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
+                    <i class="fas fa-book-open text-indigo-900 text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold">UTC Library</h1>
+                </div>
+            </div>
+            <nav class="space-y-2">
+                <a href="dashboard-admin.html" class="flex items-center space-x-3 p-3 hover:bg-indigo-800 rounded-lg transition">
+                    <i class="fas fa-home w-5"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="categories.html" class="flex items-center space-x-3 p-3 bg-indigo-800 rounded-lg">
+                    <i class="fas fa-tags w-5"></i>
+                    <span>Danh mục/Tác giả/NXB</span>
+                </a>
+            </nav>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="ml-64 p-8">
+        <!-- Header -->
+        <div class="bg-white rounded-lg shadow p-6 mb-6">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-800">Quản lý Danh mục, Tác giả, Nhà xuất bản</h2>
+                    <p class="text-gray-600">Quản lý các danh mục và thông tin liên quan</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="bg-white rounded-lg shadow mb-6">
+            <div class="border-b border-gray-200">
+                <nav class="flex -mb-px">
+                    <button class="px-6 py-3 border-b-2 border-indigo-500 text-indigo-600 font-medium text-sm">
+                        <i class="fas fa-tags mr-2"></i>Danh mục
+                    </button>
+                    <button class="px-6 py-3 border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 font-medium text-sm">
+                        <i class="fas fa-user-edit mr-2"></i>Tác giả
+                    </button>
+                    <button class="px-6 py-3 border-b-2 border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 font-medium text-sm">
+                        <i class="fas fa-building mr-2"></i>Nhà xuất bản
+                    </button>
+                </nav>
+            </div>
+
+            <div class="p-6">
+                <!-- Categories Section -->
+                <div class="mb-6 flex justify-between items-center">
+                    <h3 class="text-lg font-semibold text-gray-800">Danh sách Danh mục</h3>
+                    <button class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">
+                        <i class="fas fa-plus mr-2"></i>Thêm danh mục
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
+                        <div class="flex items-center justify-between mb-3">
+                            <h4 class="font-semibold text-gray-900">Kỹ thuật</h4>
+                            <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">Active</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-2">Mã: CAT001</p>
+                        <p class="text-sm text-gray-600 mb-4">Số sách: 234</p>
+                        <div class="flex space-x-2">
+                            <button class="flex-1 px-3 py-1 bg-indigo-600 text-white rounded text-sm hover:bg-indigo-700">
+                                <i class="fas fa-edit mr-1"></i>Sửa
+                            </button>
+                            <button class="px-3 py-1 bg-red-600 text-white rounded text-sm hover:bg-red-700">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
+                        <div class="flex items-center justify-between mb-3">
+                            <h4 class="font-semibold text-gray-900">Kinh tế</h4>
+                            <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">Active</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-2">Mã: CAT002</p>
+                        <p class="text-sm text-gray-600 mb-4">Số sách: 156</p>
+                        <div class="flex space-x-2">
+                            <button class="flex-1 px-3 py-1 bg-indigo-600 text-white rounded text-sm hover:bg-indigo-700">
+                                <i class="fas fa-edit mr-1"></i>Sửa
+                            </button>
+                            <button class="px-3 py-1 bg-red-600 text-white rounded text-sm hover:bg-red-700">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
+                        <div class="flex items-center justify-between mb-3">
+                            <h4 class="font-semibold text-gray-900">Văn học</h4>
+                            <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">Active</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-2">Mã: CAT003</p>
+                        <p class="text-sm text-gray-600 mb-4">Số sách: 98</p>
+                        <div class="flex space-x-2">
+                            <button class="flex-1 px-3 py-1 bg-indigo-600 text-white rounded text-sm hover:bg-indigo-700">
+                                <i class="fas fa-edit mr-1"></i>Sửa
+                            </button>
+                            <button class="px-3 py-1 bg-red-600 text-white rounded text-sm hover:bg-red-700">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

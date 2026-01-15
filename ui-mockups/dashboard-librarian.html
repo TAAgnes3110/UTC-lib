@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Thủ thư - Hệ thống Quản lý Thư viện UTC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-100">
+    <!-- Sidebar -->
+    <aside class="fixed left-0 top-0 h-full w-64 bg-indigo-900 text-white shadow-lg">
+        <div class="p-6">
+            <div class="flex items-center space-x-3 mb-8">
+                <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
+                    <i class="fas fa-book-open text-indigo-900 text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold">UTC Library</h1>
+                    <p class="text-xs text-indigo-300">Thủ thư</p>
+                </div>
+            </div>
+
+            <nav class="space-y-2">
+                <a href="dashboard-librarian.html" class="flex items-center space-x-3 p-3 bg-indigo-800 rounded-lg">
+                    <i class="fas fa-home w-5"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="borrow-return.html" class="flex items-center space-x-3 p-3 hover:bg-indigo-800 rounded-lg transition">
+                    <i class="fas fa-exchange-alt w-5"></i>
+                    <span>Mượn/Trả sách</span>
+                </a>
+                <a href="books.html" class="flex items-center space-x-3 p-3 hover:bg-indigo-800 rounded-lg transition">
+                    <i class="fas fa-book w-5"></i>
+                    <span>Quản lý sách</span>
+                </a>
+                <a href="fines.html" class="flex items-center space-x-3 p-3 hover:bg-indigo-800 rounded-lg transition">
+                    <i class="fas fa-money-bill-wave w-5"></i>
+                    <span>Quản lý phạt</span>
+                </a>
+                <a href="payment.html" class="flex items-center space-x-3 p-3 hover:bg-indigo-800 rounded-lg transition">
+                    <i class="fas fa-credit-card w-5"></i>
+                    <span>Thanh toán</span>
+                </a>
+                <a href="reservations.html" class="flex items-center space-x-3 p-3 hover:bg-indigo-800 rounded-lg transition">
+                    <i class="fas fa-bookmark w-5"></i>
+                    <span>Đặt chỗ sách</span>
+                </a>
+                <a href="role-selector.html" class="flex items-center space-x-3 p-3 hover:bg-yellow-600 rounded-lg transition mt-8">
+                    <i class="fas fa-exchange-alt w-5"></i>
+                    <span>Chuyển Role</span>
+                </a>
+                <a href="login.html" class="flex items-center space-x-3 p-3 hover:bg-red-600 rounded-lg transition">
+                    <i class="fas fa-sign-out-alt w-5"></i>
+                    <span>Đăng xuất</span>
+                </a>
+            </nav>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="ml-64 p-8">
+        <!-- Header -->
+        <div class="bg-white rounded-lg shadow p-6 mb-6">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-800">Dashboard Thủ thư</h2>
+                    <p class="text-gray-600">Quản lý mượn trả và hoạt động thư viện</p>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="text-right">
+                        <p class="text-sm text-gray-600">Xin chào,</p>
+                        <p class="font-semibold text-gray-800">Thủ thư</p>
+                    </div>
+                    <div class="w-10 h-10 bg-indigo-600 rounded-full flex items-center justify-center">
+                        <i class="fas fa-user text-white"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+            <a href="borrow-return.html" class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition cursor-pointer">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-600 text-sm mb-1">Mượn sách</p>
+                        <p class="text-xl font-bold text-gray-800">Quét barcode</p>
+                    </div>
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-qrcode text-blue-600 text-xl"></i>
+                    </div>
+                </div>
+            </a>
+
+            <a href="borrow-return.html" class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition cursor-pointer">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-600 text-sm mb-1">Trả sách</p>
+                        <p class="text-xl font-bold text-gray-800">Quét barcode</p>
+                    </div>
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-barcode text-green-600 text-xl"></i>
+                    </div>
+                </div>
+            </a>
+
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-600 text-sm mb-1">Đang mượn</p>
+                        <p class="text-3xl font-bold text-gray-800">156</p>
+                    </div>
+                    <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-book-reader text-orange-600 text-xl"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-600 text-sm mb-1">Quá hạn</p>
+                        <p class="text-3xl font-bold text-red-600">12</p>
+                    </div>
+                    <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-exclamation-triangle text-red-600 text-xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pending Actions -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+            <!-- Pending Returns -->
+            <div class="bg-white rounded-lg shadow">
+                <div class="p-6 border-b border-gray-200">
+                    <h3 class="text-lg font-semibold text-gray-800">Sách sắp đến hạn (3 ngày)</h3>
+                </div>
+                <div class="p-6">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
+                            <div>
+                                <p class="font-medium text-gray-900">Giáo trình Công nghệ Web</p>
+                                <p class="text-sm text-gray-600">Nguyễn Văn A - SV2021001</p>
+                                <p class="text-xs text-yellow-600 mt-1">Hạn trả: 15/01/2026</p>
+                            </div>
+                            <button class="px-3 py-1 bg-yellow-600 text-white rounded text-sm hover:bg-yellow-700">
+                                Gửi nhắc nhở
+                            </button>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
+                            <div>
+                                <p class="font-medium text-gray-900">Toán học cao cấp</p>
+                                <p class="text-sm text-gray-600">Trần Thị B - SV2021002</p>
+                                <p class="text-xs text-yellow-600 mt-1">Hạn trả: 16/01/2026</p>
+                            </div>
+                            <button class="px-3 py-1 bg-yellow-600 text-white rounded text-sm hover:bg-yellow-700">
+                                Gửi nhắc nhở
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Overdue Books -->
+            <div class="bg-white rounded-lg shadow">
+                <div class="p-6 border-b border-gray-200">
+                    <h3 class="text-lg font-semibold text-gray-800">Sách quá hạn</h3>
+                </div>
+                <div class="p-6">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between p-3 bg-red-50 border border-red-200 rounded-lg">
+                            <div>
+                                <p class="font-medium text-gray-900">Kỹ thuật lập trình</p>
+                                <p class="text-sm text-gray-600">Lê Văn C - SV2021003</p>
+                                <p class="text-xs text-red-600 mt-1 font-semibold">Quá hạn 2 ngày</p>
+                                <p class="text-xs text-red-600">Phạt: 50,000 VNĐ</p>
+                            </div>
+                            <button class="px-3 py-1 bg-red-600 text-white rounded text-sm hover:bg-red-700">
+                                Xử lý
+                            </button>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-red-50 border border-red-200 rounded-lg">
+                            <div>
+                                <p class="font-medium text-gray-900">Cơ sở dữ liệu</p>
+                                <p class="text-sm text-gray-600">Phạm Văn D - SV2021004</p>
+                                <p class="text-xs text-red-600 mt-1 font-semibold">Quá hạn 5 ngày</p>
+                                <p class="text-xs text-red-600">Phạt: 125,000 VNĐ</p>
+                            </div>
+                            <button class="px-3 py-1 bg-red-600 text-white rounded text-sm hover:bg-red-700">
+                                Xử lý
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="bg-white rounded-lg shadow">
+            <div class="p-6 border-b border-gray-200">
+                <h3 class="text-lg font-semibold text-gray-800">Hoạt động gần đây</h3>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Thời gian</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Người dùng</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Hoạt động</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Sách</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Trạng thái</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">10 phút trước</td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm font-medium text-gray-900">Nguyễn Văn A</div>
+                                <div class="text-sm text-gray-500">SV2021001</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">
+                                    Mượn sách
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Giáo trình Công nghệ Web</td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="px-2 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800">
+                                    Thành công
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">25 phút trước</td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="text-sm font-medium text-gray-900">Trần Thị B</div>
+                                <div class="text-sm text-gray-500">SV2021002</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="px-2 py-1 text-xs font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                                    Trả sách
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Toán học cao cấp</td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">
+                                    Hoàn thành
+                                </span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

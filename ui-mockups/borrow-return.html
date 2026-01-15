@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mượn/Trả sách - Hệ thống Quản lý Thư viện UTC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-100">
+    <!-- Sidebar -->
+    <aside class="fixed left-0 top-0 h-full w-64 bg-indigo-900 text-white shadow-lg">
+        <div class="p-6">
+            <div class="flex items-center space-x-3 mb-8">
+                <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
+                    <i class="fas fa-book-open text-indigo-900 text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold">UTC Library</h1>
+                </div>
+            </div>
+            <nav class="space-y-2">
+                <a href="dashboard-librarian.html" class="flex items-center space-x-3 p-3 hover:bg-indigo-800 rounded-lg transition">
+                    <i class="fas fa-home w-5"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="borrow-return.html" class="flex items-center space-x-3 p-3 bg-indigo-800 rounded-lg">
+                    <i class="fas fa-exchange-alt w-5"></i>
+                    <span>Mượn/Trả sách</span>
+                </a>
+            </nav>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="ml-64 p-8">
+        <h2 class="text-2xl font-bold text-gray-800 mb-6">Mượn/Trả sách</h2>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Borrow Section -->
+            <div class="bg-white rounded-lg shadow">
+                <div class="p-6 border-b border-gray-200 bg-blue-50">
+                    <h3 class="text-xl font-semibold text-gray-800">
+                        <i class="fas fa-book-reader text-blue-600 mr-2"></i>Mượn sách
+                    </h3>
+                </div>
+                <div class="p-6">
+                    <!-- User Search -->
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Tìm kiếm người dùng</label>
+                        <div class="flex space-x-2">
+                            <div class="flex-1 relative">
+                                <input
+                                    type="text"
+                                    placeholder="Mã SV/GV, Email hoặc Tên..."
+                                    class="w-full px-4 py-2 pl-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                                >
+                                <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                            </div>
+                            <button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                                <i class="fas fa-qrcode"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Selected User Info -->
+                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="font-semibold text-gray-900">Nguyễn Văn A</p>
+                                <p class="text-sm text-gray-600">SV2021001 - Sinh viên</p>
+                                <p class="text-sm text-gray-600">Email: nguyenvana@utc.edu.vn</p>
+                                <div class="mt-2 flex space-x-4 text-xs">
+                                    <span class="text-gray-600">Đang mượn: <strong class="text-blue-600">2/5</strong></span>
+                                    <span class="text-gray-600">Phạt chưa trả: <strong class="text-red-600">0 VNĐ</strong></span>
+                                </div>
+                            </div>
+                            <button class="text-red-600 hover:text-red-700">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Book Search -->
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Quét barcode sách</label>
+                        <div class="flex space-x-2">
+                            <input
+                                type="text"
+                                placeholder="Nhập hoặc quét barcode..."
+                                class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                            >
+                            <button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                                <i class="fas fa-barcode"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Selected Books -->
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between p-3 bg-gray-50 border border-gray-200 rounded-lg">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-12 h-16 bg-gray-200 rounded flex-shrink-0">
+                                    <img src="https://via.placeholder.com/48x64" alt="Book" class="w-full h-full object-cover rounded">
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-900">Giáo trình Công nghệ Web</p>
+                                    <p class="text-sm text-gray-600">Barcode: BTC001-001</p>
+                                </div>
+                            </div>
+                            <button class="text-red-600 hover:text-red-700">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button class="w-full mt-6 px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-semibold">
+                        <i class="fas fa-check mr-2"></i>Xác nhận mượn sách
+                    </button>
+                </div>
+            </div>
+
+            <!-- Return Section -->
+            <div class="bg-white rounded-lg shadow">
+                <div class="p-6 border-b border-gray-200 bg-green-50">
+                    <h3 class="text-xl font-semibold text-gray-800">
+                        <i class="fas fa-undo text-green-600 mr-2"></i>Trả sách
+                    </h3>
+                </div>
+                <div class="p-6">
+                    <!-- Book Barcode Scanner -->
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Quét barcode sách trả</label>
+                        <div class="flex space-x-2">
+                            <input
+                                type="text"
+                                placeholder="Nhập hoặc quét barcode..."
+                                class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500"
+                            >
+                            <button class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">
+                                <i class="fas fa-barcode"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Returned Books List -->
+                    <div class="space-y-3 mb-6">
+                        <div class="p-4 bg-green-50 border border-green-200 rounded-lg">
+                            <div class="flex items-center justify-between mb-2">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-12 h-16 bg-gray-200 rounded flex-shrink-0">
+                                        <img src="https://via.placeholder.com/48x64" alt="Book" class="w-full h-full object-cover rounded">
+                                    </div>
+                                    <div>
+                                        <p class="font-medium text-gray-900">Toán học cao cấp</p>
+                                        <p class="text-sm text-gray-600">Barcode: THC002-001</p>
+                                        <p class="text-sm text-gray-600">Mượn bởi: Trần Thị B</p>
+                                        <p class="text-xs text-green-600 mt-1">
+                                            <i class="fas fa-check-circle mr-1"></i>Đúng hạn
+                                        </p>
+                                    </div>
+                                </div>
+                                <button class="text-red-600 hover:text-red-700">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="p-4 bg-red-50 border border-red-200 rounded-lg">
+                            <div class="flex items-center justify-between mb-2">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-12 h-16 bg-gray-200 rounded flex-shrink-0">
+                                        <img src="https://via.placeholder.com/48x64" alt="Book" class="w-full h-full object-cover rounded">
+                                    </div>
+                                    <div>
+                                        <p class="font-medium text-gray-900">Kỹ thuật lập trình</p>
+                                        <p class="text-sm text-gray-600">Barcode: KTL003-001</p>
+                                        <p class="text-sm text-gray-600">Mượn bởi: Lê Văn C</p>
+                                        <p class="text-xs text-red-600 mt-1 font-semibold">
+                                            <i class="fas fa-exclamation-circle mr-1"></i>Quá hạn 2 ngày
+                                        </p>
+                                        <p class="text-xs text-red-600">Phạt: 50,000 VNĐ</p>
+                                    </div>
+                                </div>
+                                <button class="text-red-600 hover:text-red-700">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fine Summary -->
+                    <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
+                        <div class="flex justify-between items-center">
+                            <span class="font-semibold text-gray-900">Tổng phạt:</span>
+                            <span class="text-xl font-bold text-red-600">50,000 VNĐ</span>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button class="w-full px-4 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 font-semibold">
+                        <i class="fas fa-check mr-2"></i>Xác nhận trả sách
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Extensions Section -->
+        <div class="bg-white rounded-lg shadow mt-6">
+            <div class="p-6 border-b border-gray-200">
+                <h3 class="text-xl font-semibold text-gray-800">
+                    <i class="fas fa-clock text-indigo-600 mr-2"></i>Gia hạn mượn sách
+                </h3>
+            </div>
+            <div class="p-6">
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Sách</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Người mượn</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Ngày mượn</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Hạn trả</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Lần gia hạn</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4">
+                                    <div class="text-sm font-medium text-gray-900">Giáo trình Công nghệ Web</div>
+                                    <div class="text-sm text-gray-500">BTC001-001</div>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-gray-900">Nguyễn Văn A</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">01/01/2026</td>
+                                <td class="px-6 py-4 text-sm text-yellow-600 font-semibold">15/01/2026</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">0/2</td>
+                                <td class="px-6 py-4">
+                                    <button class="px-3 py-1 bg-indigo-600 text-white rounded text-sm hover:bg-indigo-700">
+                                        Gia hạn
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

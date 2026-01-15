@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Báo cáo Thống kê - Hệ thống Quản lý Thư viện UTC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-100">
+    <!-- Sidebar -->
+    <aside class="fixed left-0 top-0 h-full w-64 bg-indigo-900 text-white shadow-lg">
+        <div class="p-6">
+            <div class="flex items-center space-x-3 mb-8">
+                <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
+                    <i class="fas fa-book-open text-indigo-900 text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold">UTC Library</h1>
+                </div>
+            </div>
+            <nav class="space-y-2">
+                <a href="dashboard-admin.html" class="flex items-center space-x-3 p-3 hover:bg-indigo-800 rounded-lg transition">
+                    <i class="fas fa-home w-5"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="reports.html" class="flex items-center space-x-3 p-3 bg-indigo-800 rounded-lg">
+                    <i class="fas fa-chart-bar w-5"></i>
+                    <span>Báo cáo Thống kê</span>
+                </a>
+            </nav>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="ml-64 p-8">
+        <!-- Header -->
+        <div class="bg-white rounded-lg shadow p-6 mb-6">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-800">Báo cáo Thống kê</h2>
+                    <p class="text-gray-600">Báo cáo và thống kê hoạt động thư viện</p>
+                </div>
+                <div class="flex space-x-3">
+                    <select class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                        <option>Tháng này</option>
+                        <option>Tuần này</option>
+                        <option>Năm nay</option>
+                        <option>Tùy chỉnh</option>
+                    </select>
+                    <button class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">
+                        <i class="fas fa-download mr-2"></i>Xuất Excel
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-600 text-sm mb-1">Tổng lượt mượn</p>
+                        <p class="text-3xl font-bold text-gray-800">1,234</p>
+                        <p class="text-green-600 text-sm mt-1">
+                            <i class="fas fa-arrow-up"></i> +15% so tháng trước
+                        </p>
+                    </div>
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-book-reader text-blue-600 text-xl"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-600 text-sm mb-1">Sách mới</p>
+                        <p class="text-3xl font-bold text-gray-800">56</p>
+                        <p class="text-green-600 text-sm mt-1">
+                            <i class="fas fa-arrow-up"></i> +8 cuốn
+                        </p>
+                    </div>
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-book text-green-600 text-xl"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-600 text-sm mb-1">Tổng phạt</p>
+                        <p class="text-3xl font-bold text-gray-800">2.5M</p>
+                        <p class="text-gray-600 text-sm mt-1">VNĐ</p>
+                    </div>
+                    <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-money-bill-wave text-red-600 text-xl"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-600 text-sm mb-1">Người dùng mới</p>
+                        <p class="text-3xl font-bold text-gray-800">89</p>
+                        <p class="text-green-600 text-sm mt-1">
+                            <i class="fas fa-arrow-up"></i> +12%
+                        </p>
+                    </div>
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-user-plus text-purple-600 text-xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+            <div class="bg-white rounded-lg shadow p-6">
+                <h3 class="text-lg font-semibold text-gray-800 mb-4">Thống kê mượn sách theo tháng</h3>
+                <canvas id="monthlyBorrowChart"></canvas>
+            </div>
+
+            <div class="bg-white rounded-lg shadow p-6">
+                <h3 class="text-lg font-semibold text-gray-800 mb-4">Sách được mượn nhiều nhất</h3>
+                <canvas id="popularBooksChart"></canvas>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div class="bg-white rounded-lg shadow p-6">
+                <h3 class="text-lg font-semibold text-gray-800 mb-4">Phân bố theo danh mục</h3>
+                <canvas id="categoryChart"></canvas>
+            </div>
+
+            <div class="bg-white rounded-lg shadow p-6">
+                <h3 class="text-lg font-semibold text-gray-800 mb-4">Thống kê phạt</h3>
+                <canvas id="finesChart"></canvas>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Monthly Borrow Chart
+        const monthlyCtx = document.getElementById('monthlyBorrowChart').getContext('2d');
+        new Chart(monthlyCtx, {
+            type: 'line',
+            data: {
+                labels: ['T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'T8', 'T9', 'T10', 'T11', 'T12'],
+                datasets: [{
+                    label: 'Lượt mượn',
+                    data: [120, 190, 150, 250, 220, 300, 280, 310, 290, 330, 350, 380],
+                    borderColor: 'rgb(99, 102, 241)',
+                    backgroundColor: 'rgba(99, 102, 241, 0.1)',
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+
+        // Popular Books Chart
+        const popularCtx = document.getElementById('popularBooksChart').getContext('2d');
+        new Chart(popularCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Giáo trình CN Web', 'Toán cao cấp', 'Kỹ thuật lập trình', 'Cơ sở dữ liệu', 'Văn học'],
+                datasets: [{
+                    label: 'Lượt mượn',
+                    data: [120, 98, 87, 76, 65],
+                    backgroundColor: 'rgba(99, 102, 241, 0.8)'
+                }]
+            },
+            options: {
+                responsive: true,
+                indexAxis: 'y'
+            }
+        });
+
+        // Category Chart
+        const categoryCtx = document.getElementById('categoryChart').getContext('2d');
+        new Chart(categoryCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Kỹ thuật', 'Kinh tế', 'Văn học', 'Khoa học', 'Khác'],
+                datasets: [{
+                    data: [35, 25, 20, 15, 5],
+                    backgroundColor: [
+                        'rgb(99, 102, 241)',
+                        'rgb(249, 115, 22)',
+                        'rgb(34, 197, 94)',
+                        'rgb(236, 72, 153)',
+                        'rgb(156, 163, 175)'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+
+        // Fines Chart
+        const finesCtx = document.getElementById('finesChart').getContext('2d');
+        new Chart(finesCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Quá hạn', 'Mất sách', 'Hư hỏng'],
+                datasets: [{
+                    label: 'Số lượng phạt',
+                    data: [42, 8, 5],
+                    backgroundColor: [
+                        'rgba(239, 68, 68, 0.8)',
+                        'rgba(234, 179, 8, 0.8)',
+                        'rgba(156, 163, 175, 0.8)'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+    </script>
+</body>
+</html>
