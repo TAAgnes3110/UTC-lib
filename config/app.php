@@ -1,12 +1,12 @@
 <?php
 
 return [
-    'api_urls'=>[
-        'base'=>env('BASE_URL', ''),
-        '_members'=>env('MEMBER_URL', ''),
-        '_students'=>env('STUDENT_URL', ''),
+    'api_urls' => [
+        'base' => env('BASE_URL', ''),
+        '_members' => env('MEMBER_URL', ''),
+        '_students' => env('STUDENT_URL', ''),
     ],
-    'password_default'=>env('PASSWORD_DEFAULT'),
+    'password_default' => env('APP_PASSWORD_DEFAULT'),
 
     /*
     |--------------------------------------------------------------------------
