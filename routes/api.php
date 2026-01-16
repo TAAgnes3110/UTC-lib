@@ -2,38 +2,59 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BookController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\AuthController;
 
-// Public API routes
 Route::prefix('v1')->group(function () {
-    // Books
-    Route::get('/books', [BookController::class, 'index']);
-    Route::get('/books/search', [BookController::class, 'search']);
-    Route::get('/books/{id}', [BookController::class, 'show']);
+    Route::middleware('throttle:5,1')->group(function () {
+        Route::post('/auth/login', [AuthController::class, 'login'])
+            ->name('api.auth.login');
 
-    // Categories
-    Route::get('/categories', [CategoryController::class, 'index']);
-    Route::get('/categories/{id}', [CategoryController::class, 'show']);
+        Route::post('/auth/register', [AuthController::class, 'register'])
+            ->name('api.auth.register');
+    });
 
-    // Statistics
-    Route::get('/stats', function () {
-        return response()->json([
-            'total_categories' => \App\Models\Category::where('status', 'active')->count(),
-            'total_books' => \App\Models\Book::where('status', 'active')->count(),
-        ]);
+    Route::middleware('throttle:10,1')->group(function () {
+        Route::post('/auth/verify-register-otp', [AuthController::class, 'verifyRegisterOtp'])
+            ->name('api.auth.verify-register-otp');
+
+        Route::post('/auth/resend-register-otp', [AuthController::class, 'resendRegisterOtp'])
+            ->name('api.auth.resend-register-otp');
+    });
+
+    Route::middleware('throttle:5,1')->group(function () {
+        Route::post('/auth/forgot-password', [AuthController::class, 'forgotPassword'])
+            ->name('api.auth.forgot-password');
+
+        Route::post('/auth/verify-reset-password-otp', [AuthController::class, 'verifyResetPasswordOtp'])
+            ->name('api.auth.verify-reset-password-otp');
+
+        Route::post('/auth/reset-password', [AuthController::class, 'resetPassword'])
+            ->name('api.auth.reset-password');
     });
 });
 
-// Protected API routes
-Route::middleware('auth:sanctum')->prefix('v1')->group(function () {
-    Route::get('/user', function (Request $request) {
-        return $request->user();
+Route::middleware(['auth:api'])->prefix('v1')->group(function () {
+    Route::prefix('auth')->group(function () {
+        Route::post('/logout', [AuthController::class, 'logout'])
+            ->name('api.auth.logout');
+
+        Route::post('/refresh', [AuthController::class, 'refreshToken'])
+            ->name('api.auth.refresh');
+
+        Route::get('/profile', [AuthController::class, 'getProfile'])
+            ->name('api.auth.profile');
+
+        Route::middleware('throttle:5,1')
+            ->post('/change-password', [AuthController::class, 'changePassword'])
+            ->name('api.auth.change-password');
     });
 
-    // Dashboard
-    Route::get('/dashboard/admin', [DashboardController::class, 'admin']);
-    Route::get('/dashboard/student', [DashboardController::class, 'student']);
-    Route::get('/dashboard/librarian', [DashboardController::class, 'librarian']);
+    Route::get('/user', function (Request $request) {
+        return response()->json([
+            'status' => true,
+            'data' => [
+                'user' => $request->user(),
+            ],
+        ]);
+    })->name('api.user.info');
 });

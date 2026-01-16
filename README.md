@@ -18,7 +18,7 @@ Hệ thống Quản lý Thư viện UTC là một ứng dụng web hiện đại
 - **Framework:** Laravel 12.0
 - **Ngôn ngữ:** PHP 8.2+
 - **Authentication:** Laravel Sanctum 4.2 (API Token)
-- **Database:** MySQL/PostgreSQL/SQLite
+- **Database:** MySQL
 - **ORM:** Eloquent ORM
 - **Queue System:** Laravel Queue (Background Jobs)
 

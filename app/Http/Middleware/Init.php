@@ -2,7 +2,7 @@
 
 namespace App\Http\Middleware;
 
-//use App\Helpers\CurrentUser;
+use App\Helpers\CurrentUser;
 use Closure;
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
@@ -33,8 +33,20 @@ class Init
                 $yaht = $request->headers->get('yaht');
                 if ($yaht) {
                     $payload = JWT::decode($yaht, new Key(config('jwt.secret'), 'HS256'));
-
+                    if (!empty($payload->data)) {
+                        $currentSystem = $payload->data->system;
+                        $currentCustomer = $payload->data->customer;
+                        $currentPerson = $payload->data->person;
+                        $apis = (array)$payload->apis;
+                        $currentUser = new currentUser($payload->data->current_user);
+                        $role_prefix = strtoupper($currentCustomer->code.'-'.$currentSystem->system.'_');
+                        return $next($request);
+                    }
                 }
+                return response()->json([
+                    'satus' => false,
+                    'message' => 'Phần mềm bạn đang sử dụng không tồn tại hoặc đã hết hạn. Vui lòng liên hệ với Admin để được hỗ trợ 3',
+                ], 404);
             }
         } catch (\Exception $e) {
             return response()->json([

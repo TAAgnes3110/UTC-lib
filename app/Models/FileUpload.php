@@ -40,7 +40,7 @@ class FileUpload extends BaseModel
         'ordering' => 'integer',
     ];
 
-    public function scopeTaxonomy(Builder $query, string $taxonomy = null): void
+    public function scopeTaxonomy(Builder $query, ?string $taxonomy = null): void
     {
         $taxonomy = $taxonomy ?? request()->get('taxonomy');
         if ($taxonomy) {

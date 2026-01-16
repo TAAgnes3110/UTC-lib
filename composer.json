@@ -8,12 +8,14 @@
     "require": {
         "php": "^8.2",
         "intervention/image": "^3.11",
+        "intervention/image-laravel": "^1.1",
         "laravel/framework": "^12.0",
         "laravel/sanctum": "^4.2",
         "laravel/tinker": "^2.10.1",
         "livewire/livewire": "^3.7",
         "maatwebsite/excel": "^3.1",
         "ncjoes/office-converter": "^1.0",
+        "php-open-source-saver/jwt-auth": "^2.8",
         "setasign/fpdi": "^2.6"
     },
     "require-dev": {

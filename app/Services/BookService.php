@@ -2,7 +2,6 @@
 
 namespace App\Services;
 
-
 use App\Models\Book;
 use App\Models\BookCopy;
 use App\Models\Tag;
@@ -12,26 +11,10 @@ use Illuminate\Support\Str;
 
 class BookService
 {
-  protected $model;
-  protected $fileService;
-
-  public function __construct(Book $model, FileService $fileService)
-  {
-    $this->model = $model;
-    $this->fileService = $fileService;
-  }
-
   /**
    * Lấy danh sách sách có lọc và phân trang (Keyword, Author, Category...)
    */
-  public function getBooks(array $filters = [], $limit = 10)
-  {
-    $query = $this->model()->query();
-    if (!empty($filters['keyword'])) {
-      $query->where('title', 'like', '%' . $filters['keyword'] . '%');
-    }
-    return $query->paginate($limit);
-  }
+  public function getBooks(array $filters = [], $limit = 10) {}
 
   /**
    * Lấy chi tiết sách kèm thông tin tác giả, nxb, vị trí

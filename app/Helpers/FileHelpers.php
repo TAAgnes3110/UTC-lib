@@ -199,7 +199,7 @@ class FileHelpers
     {
         $full_path = $item->file_path . '/' . $item->file_name . '.' . $item->file_ext;
         if (Storage::disk()->exists($full_path)) {
-            return Storage::disk()->url($full_path);
+            return Storage::url($full_path);
         }
         return false;
     }
@@ -315,7 +315,7 @@ class FileHelpers
                 $this->file_size = $file->getSize();
                 $this->setFileMime();
                 if (Storage::disk()->putFileAs($this->file_path, $file, $this->full_name)) {
-                    $this->file_url = Storage::disk()->url($this->file_path);
+                    $this->file_url = Storage::url($this->file_path);
                     $this->status = true;
                 }
             }
@@ -386,7 +386,7 @@ class FileHelpers
                 $this->file_size = $file['size'];
                 $this->setFileMime();
                 if (Storage::disk()->putFileAs($this->file_path, $file['tmp_name'], $this->full_name)) {
-                    $this->file_url = Storage::disk()->url($this->file_path);
+                    $this->file_url = Storage::url($this->file_path);
                     $this->image = Image::read(Storage::disk()->path($this->file_path . "/" . $this->full_name));
                     $this->image_size = ['width' => $this->image->width(), 'height' => $this->image->height()];
                     $this->status = true;
@@ -403,7 +403,7 @@ class FileHelpers
                 $this->file_size = $file['size'];
                 $this->setFileMime();
                 if (Storage::disk()->putFileAs($this->file_path, $file['tmp_name'], $this->full_name)) {
-                    $this->file_url = Storage::disk()->url($this->file_path);
+                    $this->file_url = Storage::url($this->file_path);
                     $this->image = Image::read(Storage::disk()->path($this->file_path . "/" . $this->full_name));
                     $this->status = true;
                     if ($this->image->width() > 1600) {
@@ -424,7 +424,7 @@ class FileHelpers
             $this->full_name = $this->file_name . '.' . $this->file_ext;
             $this->setFileMime();
             if (Storage::disk()->put($this->file_path . '/' . $this->full_name, base64_decode($code))) {
-                $this->file_url = Storage::disk()->url($this->file_path);
+                $this->file_url = Storage::url($this->file_path);
                 $img = Image::read(Storage::disk()->path($this->file_path . "/" . $this->full_name));
                 $this->image_size = ['width' => $img->width(), 'height' => $img->height()];
                 $this->status = true;
@@ -438,7 +438,7 @@ class FileHelpers
         if (!empty($url)) {
             try {
                 if ($context) {
-                    $content = file_get_contents($url, null, $context);
+                    $content = file_get_contents($url, false, $context);
                 } else {
                     $content = file_get_contents($url);
                 }
@@ -447,7 +447,7 @@ class FileHelpers
                     if (in_array($this->file_ext, ['jpg', 'jpeg', 'png', 'webp'])) {
                         $this->setFileMime();
                         if (Storage::disk()->put($this->file_path . '/' . $this->full_name, $content)) {
-                            $this->file_url = Storage::disk()->url($this->file_path);
+                            $this->file_url = Storage::url($this->file_path);
                             $this->image = Image::read(Storage::disk()->path($this->file_path . "/" . $this->full_name));
                             $this->status = true;
                             if ($this->image->width() > 1600) {
@@ -479,14 +479,14 @@ class FileHelpers
                         ),
                     )
                 );
-                $content = file_get_contents($url, null, $context);
+                $content = file_get_contents($url, false, $context);
                 if ($content) {
                     $this->setFileName($url, $suffix);
                     if (in_array($this->file_ext, ['jpg', 'jpeg', 'png', 'webp'])) {
                         $this->setFileMime();
                         if (Storage::disk()->put($this->file_path . '/' . $this->full_name, $content)) {
                             $this->file_size = Storage::size($this->file_path . '/' . $this->full_name);
-                            $this->file_url = Storage::disk()->url($this->file_path);
+                            $this->file_url = Storage::url($this->file_path);
                             $this->status = true;
                         }
                     }
@@ -503,7 +503,7 @@ class FileHelpers
         if (!empty($url)) {
             try {
                 if ($context) {
-                    $content = @file_get_contents($url, null, $context);
+                    $content = @file_get_contents($url, false, $context);
                 } else {
                     $content = @file_get_contents($url);
                 }
@@ -513,7 +513,7 @@ class FileHelpers
                     if ($this->file_mime) {
                         if (Storage::disk()->put($this->file_path . '/' . $this->full_name, $content)) {
                             $this->file_size = Storage::size($this->file_path . '/' . $this->full_name);
-                            $this->file_url = Storage::disk()->url($this->file_path);
+                            $this->file_url = Storage::url($this->file_path);
                             $this->status = true;
                         }
                     }
@@ -654,7 +654,7 @@ class FileHelpers
             $this->setFileMime();
             if ($this->file_mime) {
                 if (Storage::disk()->putFileAs($this->file_path, $file, $this->full_name)) {
-                    $this->file_url = Storage::disk()->url($this->file_path);
+                    $this->file_url = Storage::url($this->file_path);
                     $this->status = true;
                 }
             }
@@ -669,7 +669,7 @@ class FileHelpers
             $this->setFileMime();
             if ($this->file_mime) {
                 if (Storage::disk()->putFileAs($this->file_path, $file['tmp_name'], $this->full_name)) {
-                    $this->file_url = Storage::disk()->url($this->file_path);
+                    $this->file_url = Storage::url($this->file_path);
                     $this->status = true;
                 }
             }
@@ -684,7 +684,7 @@ class FileHelpers
             $this->setFileMime();
             if ($this->file_mime) {
                 if (Storage::disk()->putFileAs($this->file_path, $file['tmp_name'], $this->full_name)) {
-                    $this->file_url = Storage::disk()->url($this->file_path);
+                    $this->file_url = Storage::url($this->file_path);
                     $this->status = true;
                 }
             }
@@ -699,7 +699,7 @@ class FileHelpers
             $this->setFileMime();
             if ($this->file_mime) {
                 if (Storage::disk()->putFileAs($this->file_path, $file['tmp_name'], $this->full_name)) {
-                    $this->file_url = Storage::disk()->url($this->file_path);
+                    $this->file_url = Storage::url($this->file_path);
                     $this->status = true;
                 }
             }
@@ -718,6 +718,7 @@ class FileHelpers
     public function signature($pdfFile, $signFile, $position, $offset = []): bool|array
     {
         if (Storage::disk()->exists($pdfFile->file_path . '/' . $pdfFile->full_name) && Storage::disk()->exists($signFile->file_path . '/' . $signFile->full_name)) {
+            /** @var mixed $fpdf */
             $fpdf = new Fpdi();
             $pageCount = $fpdf->setSourceFile(Storage::path($pdfFile->file_path . '/' . $pdfFile->full_name));
             for ($i = 1; $i <= $pageCount; $i++) {
@@ -810,6 +811,7 @@ class FileHelpers
     public function signature2($pdfFile, $signFile, $options, $portrait = 1): bool|array
     {
         if (Storage::disk()->exists($pdfFile->file_path . '/' . $pdfFile->full_name) && Storage::disk()->exists($signFile->file_path . '/' . $signFile->full_name)) {
+            /** @var mixed $fpdf */
             $fpdf = new Fpdi();
             $pageCount = $fpdf->setSourceFile(Storage::path($pdfFile->file_path . '/' . $pdfFile->full_name));
             $params = [];

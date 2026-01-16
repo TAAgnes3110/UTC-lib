@@ -8,6 +8,7 @@ class CurrentUser
 {
     public int $id = 0;
     public string $name = '';
+    public string $user_code = '';
     public int $is_admin = 0;
     public bool $use_hns_sign = false;
     public array $roles = [];
@@ -22,6 +23,7 @@ class CurrentUser
     {
         $this->id = $user->id;
         $this->name = !empty($user->name) ? $user->name : $user->email;
+        $this->user_code = $user->user_code;
         $this->is_admin = $user->is_admin ?? 0;
         $this->use_hns_sign = $user->use_hns_sign ?? false;
 
